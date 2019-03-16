@@ -7,8 +7,16 @@ from test_framework.test_utils import enable_executor_hook
 
 
 def even_odd(A):
-    # TODO - you fill in here.
-    return
+    curr_even, curr_odd = 0, len(A) - 1
+    while curr_even < curr_odd:
+        if A[curr_even] % 2 == 0:
+            curr_even += 1
+        # If instead we find an odd, just repetitively swap 
+        # with the other end until we get an even
+        else:
+            A[curr_even], A[curr_odd] = A[curr_odd], A[curr_even]
+            curr_odd -= 1
+    return A
 
 
 @enable_executor_hook
